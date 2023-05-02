@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
-
-
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,10 @@ import { NavbarComponent } from './navbar.component';
     NavbarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ModalModule.forRoot(),
+    RouterModule
   ]
 })
-export class NavbarModule { }
+export class NavbarModule {
+}
