@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CocktailService } from 'src/app/common/services/cocktail.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,11 +15,17 @@ export class NavbarComponent implements OnInit {
     backdrop: true,
     ignoreBackdropClick: false
   };
+  searchText: string = '';
 
-  constructor(public bsModalRef: BsModalRef, public bsModalService: BsModalService) {
+  constructor(private cocktailService: CocktailService, bsModalRef: BsModalRef, public bsModalService: BsModalService) {
   }
 
   ngOnInit() {
+    this.searchText = 'gin';
+  }
+
+  search(): void {
+    this.cocktailService.getCocktailsByIngredient(this.searchText);
   }
 
   openModal(template: any) {
