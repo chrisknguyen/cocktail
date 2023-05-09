@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CocktailService } from 'src/app/common/services/cocktail.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { CocktailService } from 'src/app/common/services/cocktail.service';
 })
 export class HomeComponent {
   cocktails: any;
+  destroy$ = new Subject<void>();
 
   constructor(public cocktailService: CocktailService) {
 
@@ -16,6 +18,11 @@ export class HomeComponent {
   ngOnInit() {
     this.cocktailService.subject$.subscribe((data: any) => {
       this.cocktails = data;
+      console.log('this.cocktails: ', this.cocktails);
     });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
   }
 }

@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   }
 
   search(): void {
-    this.cocktailService.getCocktailsByIngredientByName(this.searchText);
+    this.cocktailService.getCocktailsByIngredientName(this.searchText);
 
     this.cocktailService.subject$.subscribe(
       {

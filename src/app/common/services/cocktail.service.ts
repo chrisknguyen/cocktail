@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { filter, Subject, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +12,26 @@ export class CocktailService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public getCocktailsByIngredientByName(text: string): void {
-    this.httpClient.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + text).subscribe({
+  public getCocktailsByIngredientName(text: string): void {
+    this.httpClient.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + text).pipe(
+    ).subscribe({
       next: (data: any) => {
         this.subject.next(data.drinks);
-      }, error: (err: HttpErrorResponse) => {
-        this.handleError(err);
       }
     });
   }
+
+  // public getCocktailsByIngredientName(text: string): void {
+  //   this.httpClient.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + text).subscribe({
+  //     next: (data: any) => {
+  //       this.subject.next(data.drinks);
+  //     }, error: (err: HttpErrorResponse) => {
+  //       this.handleError(err);
+  //     }, complete: () => {
+  //       console.log('getCocktailsByIngredientName() complete!');
+  //     }
+  //   });
+  // }
 
   getCocktailByName(name?: string): void {
     this.httpClient.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + name).subscribe({
@@ -28,6 +39,9 @@ export class CocktailService {
         this.subject.next(data.drinks);
       }, error: (err: HttpErrorResponse) => {
         this.handleError(err);
+      }, complete: () => {
+        this.subject.complete();
+        console.log('getCocktailByName() complete!');
       }
     });
   }
