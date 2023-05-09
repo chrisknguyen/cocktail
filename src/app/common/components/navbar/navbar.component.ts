@@ -21,14 +21,6 @@ export class NavbarComponent implements OnInit {
   search(): void {
     this.cocktailService.getCocktailsByIngredientName(this.searchText);
 
-    this.cocktailService.subject$.subscribe(
-      {
-        next: (data: any) => {
-          this.cocktails = data;
-        }
-      }
-    );
-
     // if (this.cocktails.length === 0) {
     //   this.searchText = 'old fashion';
     //   this.cocktailService.getCocktailByName(this.searchText);
