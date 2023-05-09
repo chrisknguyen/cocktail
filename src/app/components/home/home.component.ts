@@ -9,12 +9,14 @@ import { CocktailService } from 'src/app/common/services/cocktail.service';
 export class HomeComponent {
   cocktails: any;
 
-  constructor(private cocktailService: CocktailService) {
+  constructor(public cocktailService: CocktailService) {
+
   }
 
-  ngOnInit() {
-    this.cocktailService.getCocktailsByIngredient().subscribe((data: any) => {
-      this.cocktails = data ? data.drinks : [];
+  ngOnInit(): void {
+    this.cocktailService.subject$.subscribe((data: any) => {
+      this.cocktails = data;
+      console.log('HomeComponent ngOnInit() this.cocktails: ', this.cocktails);
     });
   }
 }

@@ -1,28 +1,59 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { ReplaySubject } from 'rxjs';
+import { environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CocktailService {
-  private cache = new BehaviorSubject('');
+  public subject = new ReplaySubject<any>(1);
+  public subject$ = this.subject.asObservable();
 
   constructor(private httpClient: HttpClient) {
   }
 
-  getCocktailsByIngredient(text?: string): Observable<any> {
-    this.httpClient.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + text).subscribe({
+  public getCocktailsByIngredientName(text: string): void {
+    debugger;
+    this.httpClient.get(environment.urlAddress + text).subscribe({
       next: (data: any) => {
-        this.cache.next(data);
-      }, error: (err: HttpErrorResponse) => {
-        this.cache.error(err);
+        this.subject.next(data.drinks);
       }
     });
-
-    return this.cache.asObservable();
   }
+
+  getCocktailByName(name?: string): void {
+    this.httpClient.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + name).subscribe({
+      next: (data: any) => {
+        this.subject.next(data.drinks);
+      }
+    });
+  }
+
+  //
+  // getBeverageByCategory(category?: string): Observable<any> {
+  //   this.httpClient.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=' + category).subscribe({
+  //     next: (data: any) => {
+  //       this.cache.next(data);
+  //     }, error: (err: HttpErrorResponse) => {
+  //       this.handleError(err);
+  //     }
+  //   });
+  //
+  //   return this.cache.asObservable();
+  // }
+  //
+  // getCocktailById(id?: number): Observable<any> {
+  //   this.httpClient.get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + id).subscribe({
+  //     next: (data: any) => {
+  //       this.cache.next(data);
+  //     }, error: (err: HttpErrorResponse) => {
+  //       this.handleError(err);
+  //     }
+  //   });
+  //
+  //   return this.cache.asObservable();
+  // }
 
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
@@ -34,6 +65,5 @@ export class CocktailService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     window.alert(errorMessage);
-    return throwError(errorMessage);
   }
 }

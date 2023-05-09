@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CocktailService } from 'src/app/common/services/cocktail.service';
 
 @Component({
@@ -9,34 +8,25 @@ import { CocktailService } from 'src/app/common/services/cocktail.service';
 })
 
 export class NavbarComponent implements OnInit {
-  config = {
-    animated: false,
-    keyboard: true,
-    backdrop: true,
-    ignoreBackdropClick: false
-  };
-  searchText: string = '';
+  searchText: string = 'gin';
+  cocktails: [] = [];
 
-  constructor(private cocktailService: CocktailService, bsModalRef: BsModalRef, public bsModalService: BsModalService) {
+  constructor(private cocktailService: CocktailService) {
   }
 
   ngOnInit() {
-    this.searchText = 'gin';
+    this.search();
   }
 
   search(): void {
-    this.cocktailService.getCocktailsByIngredient(this.searchText);
-  }
+    this.cocktailService.getCocktailsByIngredientName(this.searchText);
 
-  openModal(template: any) {
-    this.bsModalService.show(template, this.config);
+    // if (this.cocktails.length === 0) {
+    //   this.searchText = 'old fashion';
+    //   this.cocktailService.getCocktailByName(this.searchText);
+    // }
   }
 
   goToLogin(): void {
-
-  }
-
-  closeModal() {
-    this.bsModalService.hide();
   }
 }

@@ -1,7 +1,7 @@
 <div id="carousel" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="assets/images/cocktails.jpeg" class="d-block w-100" alt="...">
+      <img src="assets/images/cocktails_illustrations.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
       <img src="..." class="d-block w-100" alt="...">
@@ -21,10 +21,11 @@
 </div>
 
 <div class="container">
-  <div class="row row-cols-4 g-3 ">
+  <div class="row row-cols-5 g-3 ">
     <div *ngFor="let item of cocktails">
       <div class="card">
-        <img src="assets/images/BA1121tucci01_test.jpeg" class="card-img-top" alt="...">
+<!--        <img src="{{item.strDrinkThumb}}" class="card-img-top" alt="...">-->
+        <img src="assets/images/minnaso_avocado.webp" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{item.strDrink}}</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
