@@ -14,9 +14,8 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
-    this.facadeService.cocktail.subject$.subscribe((data: any) => {
+    this.facadeService.cocktail.data$.subscribe((data: any) => {
       this.cocktails = data;
-      console.log('LoginComponent ngOnInit() this.cocktails: ', this.cocktails);
     });
   }
 }

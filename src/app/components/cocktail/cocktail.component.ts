@@ -9,20 +9,15 @@ import { FacadeService } from '@common/services/facade.service';
 export class CocktailComponent {
   cocktail: any;
 
-  @Input() cocktailId: number;
-
-  // set cocktailId
-
   constructor(private facadeService: FacadeService) {
   }
 
   ngOnInit() {
-    console.log('this:', this);
-    console.log('cocktailId:', this.cocktailId);
-
-    this.facadeService.cocktail.subject$.subscribe(response => {
+    this.facadeService.cocktail.data$.subscribe(response => {
       this.cocktail = response;
     });
 
+    console.log('location: ', this.facadeService.location.path());
+    console.log('router', this.facadeService.router);
   }
 }

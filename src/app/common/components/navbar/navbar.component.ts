@@ -9,7 +9,7 @@ import { FacadeService } from 'src/app/common/services/facade.service';
 })
 
 export class NavbarComponent implements OnInit {
-  searchText: string = 'bourbon';
+  searchText: string;
   cocktails: Array<any>;
   navbarItems: Array<any>;
 
@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.setupNavbar();
-    this.search();
+    // this.search();
   }
 
   setupNavbar() {
@@ -29,7 +29,4 @@ export class NavbarComponent implements OnInit {
     this.facadeService.cocktail.getCocktailsByIngredientName(this.searchText);
   }
 
-  goToCocktail(id: number): void {
-    console.log('goToCocktail id', id);
-  }
 }

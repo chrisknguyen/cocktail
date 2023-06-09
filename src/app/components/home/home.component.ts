@@ -14,15 +14,17 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-    this.facadeService.cocktail.subject$.subscribe((data: any) => {
+    this.getCocktails();
+  }
+
+  getCocktails() {
+    this.facadeService.cocktail.data$.subscribe((data: any) => {
       this.cocktails = data;
-      console.log('HomeComponent ngOnInit() this.cocktails: ', this.cocktails);
     });
   }
 
-  goToCocktail(idDrink: string) {
-    console.log('idDrink: ', idDrink);
-    this.facadeService.router.navigateByUrl('/cocktail');
-
+  goToCocktail(cocktail: any) {
+    this.facadeService.router.navigate(['/cocktail', this.facadeService.utils.parseObject({ idDrink: cocktail.idDrink })]);
   }
+
 }

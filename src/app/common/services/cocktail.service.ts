@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, Subject, share, ReplaySubject, BehaviorSubject } from 'rxjs';
+import { Observable, ReplaySubject, catchError, retry, tap, take, interval } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -8,46 +8,25 @@ import { environment } from 'src/environments/environment';
 })
 
 export class CocktailService {
-  public subject = new BehaviorSubject<any>(1);
-  public subject$ = this.subject;
+  private subject = new ReplaySubject(1);
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
-  public getCocktailsByIngredientName(text: string): Observable<any> {
-    this.httpClient.get(environment.urlAddress + text).subscribe({
+  public get data$(): Observable<any> {
+    return this.subject.asObservable();
+  }
+
+  public getCocktailsByIngredientName(text: string) {
+    this.http.get<any>(environment.urlAddress + 'i=' + text).subscribe({
       next: (data: any) => {
         this.subject.next(data.drinks);
       }
     });
-
-    return this.subject.asObservable();
   }
 
-  // public getCocktailsByIngredientName(text?: string): Observable<any> {
-  //   return this.httpClient.get(environment.urlAddress + text);
-  // }
-
-  // public getCocktailsByIngredientName(text?: string): Observable<any> {
-  //   this.httpClient.get(environment.urlAddress + text).subscribe({
-  //     next: (data: any) => {
-  //       this.subject.next(data.drinks);
-  //     },
-  //   });
-  //
-  //   return this.subject.asObservable();
-  // }
-
-  // public getCocktailsByIngredientName(text: string): void {
-  //   this.httpClient.get(environment.urlAddress + text).subscribe({
-  //     next: (data: any) => {
-  //       this.subject.next(data.drinks);
-  //     }
-  //   });
-  // }
-
-  getCocktailByName(name?: string): void {
-    this.httpClient.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + name).subscribe({
+  public getCocktailByName(name?: string): void {
+    this.http.get<any>(environment.urlAddress + 's=' + name).subscribe({
       next: (data: any) => {
         this.subject.next(data.drinks);
       }
