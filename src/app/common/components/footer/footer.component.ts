@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CocktailService } from 'src/app/common/services/cocktail.service';
+import { FacadeService } from '@common/services/facade.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,14 +9,22 @@ import { CocktailService } from 'src/app/common/services/cocktail.service';
 export class FooterComponent {
   footerCocktails: Array<any> = [];
 
-  constructor(private cocktailService: CocktailService) {
+  constructor(private facadeService: FacadeService) {
   }
 
   ngOnInit(): void {
-    this.cocktailService.subject$.subscribe({
-      next: (data: any) => {
-        this.footerCocktails = data;
-      }
-    });
+    // let test = this.facadeService.cocktail.getCocktailsByIngredientName();
+    // test.subscribe({
+    //   next: (response) => {
+    //     this.footerCocktails = response;
+    //   }
+    // });
+
+
+    // this.cocktailService.subject$.subscribe({
+    //   next: (data: any) => {
+    //     this.footerCocktails = data;
+    //   }
+    // });
   }
 }

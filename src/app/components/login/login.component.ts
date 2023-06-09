@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CocktailService } from 'src/app/common/services/cocktail.service';
+import { FacadeService } from '@common/services/facade.service';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +9,13 @@ import { CocktailService } from 'src/app/common/services/cocktail.service';
 export class LoginComponent {
   cocktails: any;
 
-  constructor(public cocktailService: CocktailService) {
+  constructor(public facadeService: FacadeService) {
 
   }
 
   ngOnInit(): void {
-    this.cocktailService.subject$.subscribe((data: any) => {
+    this.facadeService.cocktail.data$.subscribe((data: any) => {
       this.cocktails = data;
-      console.log('LoginComponent ngOnInit() this.cocktails: ', this.cocktails);
     });
   }
 }

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CocktailService } from 'src/app/common/services/cocktail.service';
+import { FacadeService } from 'src/app/common/services/facade.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,25 +9,24 @@ import { CocktailService } from 'src/app/common/services/cocktail.service';
 })
 
 export class NavbarComponent implements OnInit {
-  searchText: string = 'gin';
-  cocktails: [] = [];
+  searchText: string;
+  cocktails: Array<any>;
+  navbarItems: Array<any>;
 
-  constructor(private cocktailService: CocktailService) {
+  constructor(private facadeService: FacadeService) {
   }
 
   ngOnInit() {
-    this.search();
+    this.setupNavbar();
+    // this.search();
+  }
+
+  setupNavbar() {
+    this.navbarItems = this.facadeService.navbar.getNavbar();
   }
 
   search(): void {
-    this.cocktailService.getCocktailsByIngredientName(this.searchText);
-
-    // if (this.cocktails.length === 0) {
-    //   this.searchText = 'old fashion';
-    //   this.cocktailService.getCocktailByName(this.searchText);
-    // }
+    this.facadeService.cocktail.getCocktailsByIngredientName(this.searchText);
   }
 
-  goToLogin(): void {
-  }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CocktailService } from 'src/app/common/services/cocktail.service';
+import { FacadeService } from '@common/services/facade.service';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +9,22 @@ import { CocktailService } from 'src/app/common/services/cocktail.service';
 export class HomeComponent {
   cocktails: any;
 
-  constructor(public cocktailService: CocktailService) {
+  constructor(public facadeService: FacadeService) {
 
   }
 
   ngOnInit(): void {
-    this.cocktailService.subject$.subscribe((data: any) => {
+    this.getCocktails();
+  }
+
+  getCocktails() {
+    this.facadeService.cocktail.data$.subscribe((data: any) => {
       this.cocktails = data;
-      console.log('HomeComponent ngOnInit() this.cocktails: ', this.cocktails);
     });
   }
+
+  goToCocktail(cocktail: any) {
+    this.facadeService.router.navigate(['/cocktail', this.facadeService.utils.parseObject({ idDrink: cocktail.idDrink })]);
+  }
+
 }

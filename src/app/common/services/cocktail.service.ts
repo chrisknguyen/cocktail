@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { ReplaySubject } from 'rxjs';
-import { environment} from 'src/environments/environment';
+import { Observable, ReplaySubject, catchError, retry, tap, take, interval } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CocktailService {
-  public subject = new ReplaySubject<any>(1);
-  public subject$ = this.subject.asObservable();
 
-  constructor(private httpClient: HttpClient) {
+export class CocktailService {
+  private subject = new ReplaySubject(1);
+
+  constructor(private http: HttpClient) {
   }
 
-  public getCocktailsByIngredientName(text: string): void {
-    debugger;
-    this.httpClient.get(environment.urlAddress + text).subscribe({
+  public get data$(): Observable<any> {
+    return this.subject.asObservable();
+  }
+
+  public getCocktailsByIngredientName(text: string) {
+    this.http.get<any>(environment.urlAddress + 'i=' + text).subscribe({
       next: (data: any) => {
         this.subject.next(data.drinks);
       }
     });
   }
 
-  getCocktailByName(name?: string): void {
-    this.httpClient.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + name).subscribe({
+  public getCocktailByName(name?: string): void {
+    this.http.get<any>(environment.urlAddress + 's=' + name).subscribe({
       next: (data: any) => {
         this.subject.next(data.drinks);
       }
