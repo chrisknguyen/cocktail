@@ -28,6 +28,12 @@ export class NavbarService {
         title: 'Login',
         name: 'Login',
         url: '/login'
+      },
+      {
+        path: 'cocktails',
+        title: 'Cocktails',
+        name: 'Cocktails',
+        url: '/cocktails'
       }
     ];
   }

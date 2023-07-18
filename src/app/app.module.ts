@@ -9,7 +9,7 @@ import { HomeModule } from 'src/app/components/home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from 'src/app/components/login/login.module';
 import { HttpClientModule } from '@angular/common/http';
-import { CocktailModule } from '@components/cocktail/cocktail.module';
+import { CocktailModule } from '@components/cocktails/cocktail/cocktail.module';
 
 @NgModule({
   declarations: [
