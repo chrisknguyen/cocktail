@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { NavbarRoutingModule } from './navbar.routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ModalModule.forRoot(),
     RouterModule,
-    FormsModule
+    FormsModule,
+    NavbarRoutingModule
   ]
 })
 export class NavbarModule {
