@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarModule } from 'src/app/common/components/navbar/navbar.module';
-import { FooterModule } from 'src/app/common/components/footer/footer.module';
-import { HomeModule } from 'src/app/components/home/home.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginModule } from 'src/app/components/login/login.module';
-import { HttpClientModule } from '@angular/common/http';
-import { CocktailModule } from '@components/cocktails/cocktail/cocktail.module';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {NavbarModule} from 'src/app/navbar/navbar.module';
+import {FooterModule} from 'src/app/footer/footer.module';
+import {HomeModule} from 'src/app/home/home.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {LoginModule} from 'src/app/login/login.module';
+import {HttpClientModule} from '@angular/common/http';
+import {CocktailModule} from "./cocktails/cocktail/cocktail.module";
 
 @NgModule({
   declarations: [
@@ -17,6 +17,7 @@ import { CocktailModule } from '@components/cocktails/cocktail/cocktail.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NavbarModule,
     HomeModule,
@@ -24,7 +25,7 @@ import { CocktailModule } from '@components/cocktails/cocktail/cocktail.module';
     CocktailModule,
     FooterModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

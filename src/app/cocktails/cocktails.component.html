@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <div class="row row-cols-4 g-3">
+    <div *ngFor="let item of cocktails">
+      <div class="card" (click)="goToCocktail(item)">
+        <!--        <img src="{{item.strDrinkThumb}}" class="card-img-top" alt="...">-->
+        <img src="../../assets/images/minnaso_avocado.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title text-truncate">{{item.strDrink}}</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <button class="btn btn-primary" (click)="goToCocktail(item)">Discover</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
