@@ -20,13 +20,19 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "types": ["google.maps"],
     "lib": [
       "ES2022",
       "dom"
     ],
     "paths": {
-      "@env/*": ["src/environments/*"],
-      "@common/*": ["src/app/common/*"],
+      "@env/*": [
+        "src/environments/*"
+      ],
+      "@common/*": [
+        "src/app/common/*"
+      ],
       "@components/*": [
         "src/app/components/*"
       ],

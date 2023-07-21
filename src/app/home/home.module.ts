@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home.component';
 import {CocktailsModule} from "../cocktails/cocktails.module";
 import {MapModule} from "@common/../map/map.module";
+import {AccordionModule} from "ngx-bootstrap/accordion";
 
 @NgModule({
   declarations: [
@@ -11,11 +12,12 @@ import {MapModule} from "@common/../map/map.module";
   exports: [
     HomeComponent
   ],
-  imports: [
-    CommonModule,
-    CocktailsModule,
-    MapModule
-  ]
+    imports: [
+        CommonModule,
+        CocktailsModule,
+        MapModule,
+        AccordionModule
+    ]
 })
 export class HomeModule {
 }

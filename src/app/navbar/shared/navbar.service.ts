@@ -23,12 +23,6 @@ export class NavbarService {
         url: '/about'
       },
       {
-        path: 'login',
-        title: 'Login',
-        name: 'Login',
-        url: '/login'
-      },
-      {
         path: 'cocktails',
         title: 'Cocktails',
         name: 'Cocktails',

@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginModule} from 'src/app/login/login.module';
 import {HttpClientModule} from '@angular/common/http';
 import {CocktailModule} from "./cocktails/cocktail/cocktail.module";
+import {GoogleMapsModule} from "@angular/google-maps";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import {CocktailModule} from "./cocktails/cocktail/cocktail.module";
     FooterModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    GoogleMapsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
