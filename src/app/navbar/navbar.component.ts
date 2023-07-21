@@ -29,7 +29,6 @@ export class NavbarComponent implements OnInit {
   }
 
   goTo(path: string) {
-    console.log('goTo() path: ', path);
-    // this.facadeService.router.navigate([path]);
+    this.facadeService.router.navigate([path]);
   }
 }

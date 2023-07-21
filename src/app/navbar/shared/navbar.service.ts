@@ -23,16 +23,16 @@ export class NavbarService {
         url: '/about'
       },
       {
+        path: 'destinations',
+        title: 'Destinations',
+        name: 'Destinations',
+        url: '/destinations'
+      },
+      {
         path: 'cocktails',
         title: 'Cocktails',
         name: 'Cocktails',
         url: '/cocktails'
-      },
-      {
-        path: 'places',
-        title: 'Places',
-        name: 'Places',
-        url: '/places'
       }
     ];
   }

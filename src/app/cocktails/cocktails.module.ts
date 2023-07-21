@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CocktailsRoutingModule } from './cocktails.routing.module';
-import { CocktailsComponent } from './cocktails.component';
+import {CocktailsRoutingModule} from './cocktails.routing.module';
+import {CocktailsComponent} from './cocktails.component';
+import {CocktailModule} from "./cocktail/cocktail.module";
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CocktailsComponent } from './cocktails.component';
   ],
   imports: [
     CommonModule,
-    CocktailsRoutingModule
+    CocktailsRoutingModule,
+    CocktailModule
   ]
 })
 export class CocktailsModule { }

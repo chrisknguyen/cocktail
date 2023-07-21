@@ -27,17 +27,17 @@ export class UtilsService {
 
   decodeRoute(route: string): IRoute {
     const routeRes = {} as IRoute;
-    const routeSplited = decodeURIComponent(route).split(';');
-    routeRes.url = routeSplited[0];
+    const routeSplit = decodeURIComponent(route).split(';');
+    routeRes.url = routeSplit[0];
     routeRes.parentUrl = routeRes.url.split('/')[1];
-    routeSplited.splice(0, 1);
+    routeSplit.splice(0, 1);
     let strObj = '{';
 
-    for (let i = 0; i < routeSplited.length; i++) {
-      const items = routeSplited[i].split('=');
+    for (let i = 0; i < routeSplit.length; i++) {
+      const items = routeSplit[i].split('=');
       strObj += '"' + items[0] + '":"' + items[1] + '"';
 
-      if (i + 1 < routeSplited.length) {
+      if (i + 1 < routeSplit.length) {
         strObj += ',';
       }
     }
