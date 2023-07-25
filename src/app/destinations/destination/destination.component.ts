@@ -10,7 +10,6 @@ import {IDestination} from "../../shared/models/destination";
   styleUrls: ['./destination.component.scss']
 })
 export class DestinationComponent extends BaseComponent {
-  title: string;
   destination: IDestination;
 
   constructor(facadeService: FacadeService) {
@@ -18,13 +17,14 @@ export class DestinationComponent extends BaseComponent {
   }
 
   ngOnInit(): void {
-
     DESTINATIONS.forEach((dest) => {
       if (this.id === dest.id) {
         this.destination = dest;
       }
     })
+  }
 
-    this.title = this.route.params.title;
+  search(): void {
+    console.log('search() text: ', this.destination.searchText);
   }
 }

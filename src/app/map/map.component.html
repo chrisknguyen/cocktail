@@ -1,4 +1,8 @@
-<div class="container mb-lg-5">
+<form #destinationSearchForm="ngForm" class="mb-2">
+  <input type="text" id='searchText' name='searchText' [(ngModel)]="searchText">
+  <button (click)="searchPlace()">Search</button>
+</form>
+<div class="mb-lg-5">
   <!--The div element for the map -->
-  <div id="map" style="height: 650px; width: 100%"></div>
+  <div id="map" style="height: 612px; width: 100%"></div>
 </div>
