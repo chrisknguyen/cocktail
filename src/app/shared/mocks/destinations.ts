@@ -7,7 +7,8 @@ export const DESTINATIONS: Array<IDestination> = [{
     center: {lat: 33.690573, lng: -117.9877853117},
     zoom: 12,
     id: '',
-    mapId: '35f147ee28512f36'
+    mapId: '35f147ee28512f36',
+    mapTypeControl: false
   },
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor\n' +
     '          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\n' +
@@ -22,7 +23,8 @@ export const DESTINATIONS: Array<IDestination> = [{
     center: {lat: 34.13622509202139, lng: -118.29386078694868},
     zoom: 12,
     id: '',
-    mapId: '35f147ee28512f36'
+    mapId: '35f147ee28512f36',
+    mapTypeControl: false
   },
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor\n' +
     '          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\n' +
@@ -39,7 +41,8 @@ export const DESTINATIONS: Array<IDestination> = [{
       center: {lat: 39.308695986116945, lng: -123.79751058129371},
       zoom: 12,
       id: '',
-      mapId: '35f147ee28512f36'
+      mapId: '35f147ee28512f36',
+      mapTypeControl: false
     },
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor\n' +
       '          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\n' +
@@ -47,7 +50,6 @@ export const DESTINATIONS: Array<IDestination> = [{
       '          esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\n' +
       '          officia deserunt mollit anim id est laborum.\n' +
       '        '
-
   },
   {
     id: '004',
@@ -56,7 +58,8 @@ export const DESTINATIONS: Array<IDestination> = [{
       center: {lat: 37.754765976407256, lng: -122.4480811810121},
       zoom: 12,
       id: '',
-      mapId: '35f147ee28512f36'
+      mapId: '35f147ee28512f36',
+      mapTypeControl: false
     },
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor\n' +
       '          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco\n' +

@@ -1,17 +1,22 @@
 tabset {
   .nav-link {
     border-bottom: 1px solid white;
-
   }
 
   .tab-content {
     border: 1px solid #dee2e6;
-    height: 610px;
+    //height: 1210px;
     margin: -1px 0 0 0;
     padding: 20px 20px;
   }
+
+  .nav-tabs {
+    border-bottom: none;
+  }
 }
 
+
 .tab-body-mt-1 {
+  border-radius: 0 .55rem .55rem .55rem;
   margin-top: 1rem;
 }

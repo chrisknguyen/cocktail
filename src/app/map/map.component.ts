@@ -15,6 +15,7 @@ export class MapComponent {
   searchText: string;
   service: any;
   map: google.maps.Map;
+  place: google.maps.Place;
   infowindow: any;
   loader: any;
 
@@ -31,34 +32,28 @@ export class MapComponent {
     this.loader.importLibrary("maps").then((Map: any) => {
       this.map = new Map.Map(document.getElementById("map") as HTMLElement, this.destination.map);
     });
-
-    // this.loader.importLibrary("marker").then((Marker: any) => {
-    //   new Marker.AdvancedMarkerElement({
-    //     title: this.destination.title,
-    //     map: this.map,
-    //     position: this.destination.map.center,
-    //   });
-    // });
-
   }
 
-  searchPlace(): void {
-    const request = {
-      query: this.searchText,
-      fields: ["name", "geometry"],
-    };
+  searchPlace($event?: any): void {
+    if ($event.keyCode === 13 || $event.type === 'click') {
+      const request = {
+        query: this.searchText,
+        fields: ["name", "geometry"],
+      };
 
-    this.loader.importLibrary("places").then((Place: any) => {
-      new Place.PlacesService(this.map).findPlaceFromQuery(request, (results: any, status: any) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-          for (let i = 0; i < results.length; i++) {
-            this.createMarker(results[i]);
+      this.loader.importLibrary("places").then((Place: any) => {
+        new Place.PlacesService(this.map).findPlaceFromQuery(request, (results: any, status: any) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+            for (let i = 0; i < results.length; i++) {
+              this.createMarker(results[i]);
+            }
+
+            this.map.setZoom(15);
+            this.map.setCenter(results[0].geometry.location);
           }
-
-          this.map.setCenter(results[0].geometry.location);
-        }
-      });
-    })
+        });
+      })
+    }
   }
 
   createMarker(place: any) {

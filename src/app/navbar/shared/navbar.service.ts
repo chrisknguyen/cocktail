@@ -31,6 +31,12 @@ export class NavbarService {
         name: 'About',
         url: '/about'
       },
+      // {
+      //   path: 'profile',
+      //   title: 'Profile',
+      //   name: 'Profile',
+      //   url: '/profile'
+      // }
     ]
   };
 }

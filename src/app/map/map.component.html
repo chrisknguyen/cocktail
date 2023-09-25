@@ -1,8 +1,14 @@
-<form #destinationSearchForm="ngForm" class="mb-2">
-  <input type="text" id='searchText' name='searchText' [(ngModel)]="searchText">
-  <button (click)="searchPlace()">Search</button>
+<form #destinationSearchForm='ngForm' class='mb-2' style='width: 65%'>
+  <div class='input-group mb-1'>
+    <input (keydown)='searchPlace($event)' [(ngModel)]='searchText' aria-describedby='button-addon2' aria-label='Search Map' class='form-control shadow-none'
+           id='searchText'
+           name='searchText' placeholder='Search Map' type='text'>
+    <button (click)='searchPlace($event)' class='btn btn-outline-primary' type='button'><i
+      class='fa-solid fa-magnifying-glass'></i></button>
+    <!--    <button class="btn btn-outline-primary" type="button" (click)="searchPlace($event)">Search</button>-->
+  </div>
 </form>
-<div class="mb-lg-5">
+<div class='mb-lg-5'>
   <!--The div element for the map -->
-  <div id="map" style="height: 612px; width: 100%"></div>
+  <div id='map' style='height: 1200px; width:100%'></div>
 </div>
