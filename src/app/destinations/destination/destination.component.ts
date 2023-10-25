@@ -27,6 +27,7 @@ export class DestinationComponent extends BaseComponent {
     this.getCocktails();
   }
 
+
   search(): void {
     console.log('search() text: ', this.destination.searchText);
   }

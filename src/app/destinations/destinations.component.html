@@ -1,4 +1,4 @@
-<div class="container-fluid mx-3 mb-lg-5">
+<div class="container mb-lg-5">
   <div class="row row-cols-4 g-3">
     <div *ngFor="let item of destinations">
       <div class="card" (click)="goToDestination(item)">
@@ -7,7 +7,7 @@
         <div class="card-body">
           <h5 class="card-title text-truncate">{{item.title}}</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+                               content.</p>
           <button class="btn btn-primary" (click)="goToDestination(item)">Discover</button>
         </div>
       </div>
