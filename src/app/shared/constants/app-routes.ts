@@ -3,5 +3,9 @@ export const APPROUTES = {
   about: 'about',
   places: 'places',
   cocktails: 'cocktails',
-  login: 'login'
+  cocktail: 'cocktail',
+  login: 'login',
+  destinations: 'destinations',
+  destination: 'destination'
+
 }

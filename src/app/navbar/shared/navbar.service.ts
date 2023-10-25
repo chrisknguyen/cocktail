@@ -15,25 +15,28 @@ export class NavbarService {
         title: 'Home',
         name: 'Home',
         url: '/'
-      },
-      {
+      }, {
+        path: 'cocktails',
+        title: 'Cocktails',
+        name: 'Cocktails',
+        url: '/cocktails'
+      }, {
+        path: 'destinations',
+        title: 'Destinations',
+        name: 'Destinations',
+        url: '/destinations'
+      }, {
         path: 'about',
         title: 'About',
         name: 'About',
         url: '/about'
       },
-      {
-        path: 'cocktails',
-        title: 'Cocktails',
-        name: 'Cocktails',
-        url: '/cocktails'
-      },
-      {
-        path: 'places',
-        title: 'Places',
-        name: 'Places',
-        url: '/places'
-      }
-    ];
-  }
+      // {
+      //   path: 'profile',
+      //   title: 'Profile',
+      //   name: 'Profile',
+      //   url: '/profile'
+      // }
+    ]
+  };
 }

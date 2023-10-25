@@ -1,5 +1,7 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {Loader} from "@googlemaps/js-api-loader";
+import {IDestination} from "../shared/models/destination";
+import {API} from "../shared/constants/apiKeys";
 
 @Component({
   selector: 'app-map',
@@ -8,19 +10,64 @@ import {Loader} from "@googlemaps/js-api-loader";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapComponent {
+  @Input() destination: IDestination;
+
+  searchText: string;
+  service: any;
+  map: google.maps.Map;
+  place: google.maps.Place;
+  infowindow: any;
+  loader: any;
+
   ngOnInit(): void {
-    let map;
-    const loader = new Loader({
-      apiKey: "AIzaSyDEq2aZIBdRqgLhNAzFWwF0YKlrKNQCVvo",
-      version: "weekly",
+    this.loadMap();
+  }
+
+  loadMap(): void {
+    this.loader = new Loader({
+      apiKey: API.key,
+      version: "weekly"
     });
 
-    loader.load().then(async () => {
-      const {Map} = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
-      map = new Map(document.getElementById("map") as HTMLElement, {
-        center: {lat: 33.690573, lng: -117.9877853117},
-        zoom: 14,
-      });
+    this.loader.importLibrary("maps").then((Map: any) => {
+      this.map = new Map.Map(document.getElementById("map") as HTMLElement, this.destination.map);
     });
   }
+
+  searchPlace($event?: any): void {
+    if ($event.keyCode === 13 || $event.type === 'click') {
+      const request = {
+        query: this.searchText,
+        fields: ["name", "geometry"],
+      };
+
+      this.loader.importLibrary("places").then((Place: any) => {
+        new Place.PlacesService(this.map).findPlaceFromQuery(request, (results: any, status: any) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+            for (let i = 0; i < results.length; i++) {
+              this.createMarker(results[i]);
+            }
+
+            this.map.setZoom(15);
+            this.map.setCenter(results[0].geometry.location);
+          }
+        });
+      })
+    }
+  }
+
+  createMarker(place: any) {
+    if (!place.geometry || !place.geometry.location) return;
+
+    const marker = new google.maps.Marker({
+      map: this.map,
+      position: place.geometry.location,
+    });
+
+    google.maps.event.addListener(marker, "click", () => {
+      this.infowindow.setContent(place.name || "");
+      this.infowindow.open(this.map);
+    });
+  }
+
 }

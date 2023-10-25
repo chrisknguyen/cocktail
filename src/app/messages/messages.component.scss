@@ -1,0 +1,35 @@
+@import "../shared/scss/_variables";
+
+.card {
+  border: none;
+
+  .message-time {
+    text-align: center;
+    opacity: .25;
+  }
+
+  .card-body {
+    padding: 0;
+    align-content: end;
+  }
+
+  .card-text {
+  }
+
+  .message {
+    border-radius: 25px;
+    color: #ffffff;
+    max-width: 75%;
+    padding: 8px 15px 8px 15px;
+  }
+
+  .receiver-bg {
+    background-color: $secondary !important;
+    color: #212121;
+  }
+
+  .sender-bg {
+    background-color: $primary;
+  }
+}
+

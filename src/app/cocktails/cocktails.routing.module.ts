@@ -2,16 +2,15 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {CocktailsComponent} from "./cocktails.component";
 import {CocktailComponent} from "./cocktail/cocktail.component";
+import {APPROUTES} from "../shared/constants/app-routes";
 
 const routes: Routes = [
-  // {
-  //   path: '', component: CocktailsComponent,
-  //   children: [
-  //     {path: 'cocktail/:idDrink', component: CocktailComponent}
-  //   ]
-  // }
   {
-    path: '', component: CocktailsComponent,
+    path: APPROUTES.cocktails, title: 'Cocktails', component: CocktailsComponent,
+    children: [{
+      path: APPROUTES.cocktails + '/:idDrink', title: 'Cocktail', component: CocktailComponent
+    },
+    ]
   }
 ];
 

@@ -9,8 +9,9 @@ import {HomeModule} from 'src/app/home/home.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginModule} from 'src/app/login/login.module';
 import {HttpClientModule} from '@angular/common/http';
-import {CocktailModule} from "./cocktails/cocktail/cocktail.module";
 import {GoogleMapsModule} from "@angular/google-maps";
+import {DestinationsModule} from "./destinations/destinations.module";
+import {CocktailsModule} from "./cocktails/cocktails.module";
 
 @NgModule({
   declarations: [
@@ -22,8 +23,9 @@ import {GoogleMapsModule} from "@angular/google-maps";
     AppRoutingModule,
     NavbarModule,
     HomeModule,
+    DestinationsModule,
     LoginModule,
-    CocktailModule,
+    CocktailsModule,
     FooterModule,
     BrowserAnimationsModule,
     HttpClientModule,
