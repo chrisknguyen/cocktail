@@ -11,9 +11,6 @@ export class CocktailComponent {
   constructor(private facadeService: FacadeService) {
   }
 
-  ngOnInit() {
-    this.facadeService.cocktail.data$.subscribe(response => {
-      this.cocktail = response;
-    });
+  ngOnInit() {;
   }
 }

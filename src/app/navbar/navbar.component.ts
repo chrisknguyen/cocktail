@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
   }
 
   search(): void {
-    this.facadeService.cocktail.getCocktailsByIngredientName(this.searchText);
+    // this.facadeService.cocktail.getCocktailsByIngredientName(this.searchText);
   }
 
   goTo(path: string) {

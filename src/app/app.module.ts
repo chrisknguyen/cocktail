@@ -12,6 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {GoogleMapsModule} from "@angular/google-maps";
 import {DestinationsModule} from "./destinations/destinations.module";
 import {CocktailsModule} from "./cocktails/cocktails.module";
+import {DestinationModule} from "./destinations/destination/destination.module";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {CocktailsModule} from "./cocktails/cocktails.module";
     NavbarModule,
     HomeModule,
     DestinationsModule,
+    DestinationModule,
     LoginModule,
     CocktailsModule,
     FooterModule,
@@ -32,7 +34,6 @@ import {CocktailsModule} from "./cocktails/cocktails.module";
     GoogleMapsModule
 
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

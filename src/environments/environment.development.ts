@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  urlAddress: 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?'
+  urlAddress: 'https://restcountries.com/v3.1/all?fields=name,flags'
 };

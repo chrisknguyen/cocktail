@@ -11,7 +11,7 @@ import {IDestination} from "../../shared/models/destination";
 })
 export class DestinationComponent extends BaseComponent {
   destination: IDestination;
-  cocktails: any;
+  countries: Array<any>;
 
   constructor(facadeService: FacadeService) {
     super(facadeService)
@@ -24,22 +24,23 @@ export class DestinationComponent extends BaseComponent {
       }
     });
 
-    this.getCocktails();
+    this.getCountries();
   }
-
 
   search(): void {
     console.log('search() text: ', this.destination.searchText);
   }
 
-  getCocktails() {
-    this.facadeService.cocktail.data$.subscribe((data: any) => {
-      this.cocktails = data;
+  getCountries() {
+    this.facadeService.countries.getAllCountries().subscribe({
+      next: (response) => {
+        this.countries = response;
+      }
     });
   }
 
-  goToCocktail(cocktail: any) {
-    this.facadeService.router.navigate([encodeURI('cocktails/:idDrinks=') + cocktail.idDrink]);
+  goToCountry(cocktail: any) {
+    // this.facadeService.router.navigate([encodeURI('cocktails/:idDrinks=') + cocktail.idDrink]);
   }
 
 }

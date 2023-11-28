@@ -6,15 +6,15 @@ import { FacadeService } from '@common/../shared/services/facade.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  cocktails: any;
+  countries: any;
 
   constructor(public facadeService: FacadeService) {
 
   }
 
   ngOnInit(): void {
-    this.facadeService.cocktail.data$.subscribe((data: any) => {
-      this.cocktails = data;
+    this.facadeService.countries.data$.subscribe((data: any) => {
+      this.countries = data;
     });
   }
 }

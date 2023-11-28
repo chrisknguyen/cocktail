@@ -1,16 +1,16 @@
-import { Injectable, Injector } from '@angular/core';
-import { CocktailService } from './cocktail.service';
-import { NavbarService } from '../../navbar/shared/navbar.service';
-import { Router } from '@angular/router';
-import { UtilsService } from './utils.service';
-import { Location } from '@angular/common';
+import {Injectable, Injector} from '@angular/core';
+import {NavbarService} from '../../navbar/shared/navbar.service';
+import {Router} from '@angular/router';
+import {UtilsService} from './utils.service';
+import {Location} from '@angular/common';
+import {CountriesService} from "./countries.service";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class FacadeService {
-  private _cocktail: CocktailService;
+  private _countries: CountriesService;
   private _navbar: NavbarService;
   private _router: Router;
   private _utils: UtilsService;
@@ -19,11 +19,11 @@ export class FacadeService {
   constructor(private injector: Injector) {
   }
 
-  public get cocktail(): CocktailService {
-    if (!this._cocktail) {
-      this._cocktail = this.injector.get(CocktailService);
+  public get countries(): CountriesService {
+    if (!this._countries) {
+      this._countries = this.injector.get(CountriesService);
     }
-    return this._cocktail;
+    return this._countries;
   }
 
   public get navbar(): NavbarService {

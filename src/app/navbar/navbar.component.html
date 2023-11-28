@@ -1,22 +1,22 @@
-<nav class="navbar navbar-expand-lg fixed-top mx-3 pt-lg-3 pb-lg-4">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><i class="fa-solid fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<nav class='navbar navbar-expand-lg fixed-top px-5 py-3' style='background-color: #ffcee4'>
+  <div class='container-fluid'>
+    <a class='navbar-brand' href='#'><i class='fa-solid fa-compass'></i></a>
+    <button aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'
+            class='navbar-toggler'
+            data-bs-target='#navbarSupportedContent'
+            data-bs-toggle='collapse' type='button'>
+      <span class='navbar-toggler-icon'></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="col navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" [ngClass]="{'dropdown' : nav.title === 'Places'}" *ngFor="let nav of navbarItems">
-          <a class="nav-link active" (click)="goTo(nav.url)" routerLink="{{nav.url}}" routerLinkActive="active"
-             ariaCurrentWhenActive="page" *ngIf="nav.title !== 'Places'">{{nav.name}}</a>
-
-          <div ngbDropdown *ngIf="nav.title === 'Places'">
-            <a id="dropdownBasic1" class="nav-link active cursor-pointer" ngbDropdownToggle>
+    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+      <ul class='col navbar-nav me-auto mb-2 mb-lg-0'>
+        <li *ngFor='let nav of navbarItems' [ngClass]="{'dropdown' : nav.title === 'Places'}" class='nav-item'>
+          <a (click)='goTo(nav.url)' *ngIf="nav.title !== 'Places'" ariaCurrentWhenActive='page' class='nav-link active'
+             routerLink='{{nav.url}}' routerLinkActive='active'>{{nav.name}}</a>
+          <div *ngIf="nav.title === 'Places'" ngbDropdown>
+            <a class='nav-link active cursor-pointer' id='dropdownBasic1' ngbDropdownToggle>
               {{nav.title}}
             </a>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <div aria-labelledby='dropdownBasic1' ngbDropdownMenu>
               <button ngbDropdownItem>Fountain Valley</button>
               <button ngbDropdownItem>Los Angeles</button>
               <button ngbDropdownItem>Mendocino</button>
@@ -24,12 +24,11 @@
             </div>
           </div>
         </li>
-
       </ul>
-      <div class="d-flex">
-        <i class="fa-solid fa-user" style="margin: 4px 5px 0 0"></i>
+      <div class='d-flex'>
+        <i class='fa-solid fa-user' style='margin: 4px 5px 0 0'></i>
         <h5>
-        Profile
+          Profile
         </h5>
       </div>
     </div>
