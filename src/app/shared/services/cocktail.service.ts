@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, ReplaySubject, catchError, retry, tap, take, interval } from 'rxjs';
-import { environment } from '@env/environment';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Observable, ReplaySubject} from 'rxjs';
+import {environment} from '@env/environment';
 
 @Injectable({
   providedIn: 'root'

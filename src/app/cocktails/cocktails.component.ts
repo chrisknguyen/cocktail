@@ -17,9 +17,9 @@ export class CocktailsComponent {
   }
 
   getCocktails() {
-    this.facadeService.cocktail.data$.subscribe((data: any) => {
-      this.cocktails = data;
-    });
+    // this.facadeService.cocktail.data$.subscribe((data: any) => {
+    //   this.cocktails = data;
+    // });
   }
 
   goToCocktail(cocktail: any) {

@@ -13,6 +13,9 @@ import {MessagesModule} from "../../messages/messages.module";
   declarations: [
     DestinationComponent
   ],
+  exports: [
+    DestinationComponent
+  ],
   imports: [
     CommonModule,
     DestinationRoutingModule,
