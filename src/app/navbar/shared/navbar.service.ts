@@ -16,10 +16,10 @@ export class NavbarService {
         name: 'Home',
         url: '/'
       }, {
-        path: 'cocktails',
-        title: 'Cocktails',
-        name: 'Cocktails',
-        url: '/cocktails'
+        path: 'countries',
+        title: 'Countries',
+        name: 'Countries',
+        url: '/countries'
       }, {
         path: 'destinations',
         title: 'Destinations',

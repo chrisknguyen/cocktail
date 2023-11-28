@@ -1,0 +1,14 @@
+<div class="container mb-lg-5">
+  <div class="row row-cols-4 g-3">
+    <div *ngFor='let item of countries | slice:0:18;'>
+      <div (click)='goToCountry(item)'
+           class='card'>
+        <img alt='...' style='max-width: 200px; max-height: 100px' src='{{item.flags.png}}'>
+        <div class='card-body'>
+          <h5 class='card-title text-truncate'>{{item.name.common}}</h5>
+          <button (click)='goToCountry(item)' class='btn btn-primary'>Discover</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

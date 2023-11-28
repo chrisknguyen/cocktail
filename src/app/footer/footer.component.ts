@@ -13,7 +13,7 @@ export class FooterComponent {
   }
 
   ngOnInit(): void {
-    // let test = this.facadeService.cocktails.getCocktailsByIngredientName();
+    // let test = this.facadeService.countries.getCocktailsByIngredientName();
     // test.subscribe({
     //   next: (response) => {
     //     this.footerCocktails = response;
