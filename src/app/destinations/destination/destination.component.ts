@@ -40,7 +40,7 @@ export class DestinationComponent extends BaseComponent {
   }
 
   goToCountry(cocktail: any) {
-    // this.facadeService.router.navigate([encodeURI('cocktails/:idDrinks=') + cocktail.idDrink]);
+    // this.facadeService.router.navigate([encodeURI('countries/:idDrinks=') + cocktail.idDrink]);
   }
 
 }

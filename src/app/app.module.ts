@@ -11,7 +11,7 @@ import {LoginModule} from 'src/app/login/login.module';
 import {HttpClientModule} from '@angular/common/http';
 import {GoogleMapsModule} from "@angular/google-maps";
 import {DestinationsModule} from "./destinations/destinations.module";
-import {CocktailsModule} from "./cocktails/cocktails.module";
+import {CountriesModule} from "./countries/countries.module";
 import {DestinationModule} from "./destinations/destination/destination.module";
 
 @NgModule({
@@ -27,7 +27,7 @@ import {DestinationModule} from "./destinations/destination/destination.module";
     DestinationsModule,
     DestinationModule,
     LoginModule,
-    CocktailsModule,
+    CountriesModule,
     FooterModule,
     BrowserAnimationsModule,
     HttpClientModule,

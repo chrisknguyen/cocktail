@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home.component';
-import {CocktailsModule} from "../cocktails/cocktails.module";
+import {CountriesModule} from "../countries/countries.module";
 import {AccordionModule} from "ngx-bootstrap/accordion";
 
 @NgModule({
@@ -13,7 +13,7 @@ import {AccordionModule} from "ngx-bootstrap/accordion";
   ],
   imports: [
     CommonModule,
-    CocktailsModule,
+    CountriesModule,
     AccordionModule
   ]
 })
